@@ -9,6 +9,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
     title: "Evolución Digital | Soluciones de Alta Precisión",
     description: "Consultoría estratégica y arquitectura digital para potenciar el crecimiento de tu negocio.",
+    icons: {
+        icon: '/favicon.svg',
+    },
 };
 
 export default function RootLayout({
