@@ -67,17 +67,17 @@ const InteractiveQuizForm = () => {
   };
 
   const containerVariants = {
-    initial: { opacity: 0, x: 20 },
-    animate: { opacity: 1, x: 0 },
-    exit: { opacity: 0, x: -20 }
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    exit: { opacity: 0 }
   };
 
   if (isSuccess) {
     return (
       <motion.div
-        initial={{ scale: 0.95, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        className="bg-black/60 backdrop-blur-3xl border border-emerald-500/20 rounded-[2.5rem] p-8 md:p-12 text-center space-y-6 md:space-y-8 mx-4 shadow-2xl"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="bg-black/60 backdrop-blur-lg border border-emerald-500/20 rounded-[2.5rem] p-8 md:p-12 text-center space-y-6 md:space-y-8 mx-4 shadow-2xl"
       >
         <div className="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-full bg-emerald-500 text-white shadow-[0_0_40px_rgba(16,185,129,0.4)]">
           <Check size={32} strokeWidth={3} className="md:w-10 md:h-10" />
@@ -108,9 +108,10 @@ const InteractiveQuizForm = () => {
 
       {/* Tarjeta del Formulario: Ajustada para el canvas móvil */}
       <motion.div
-        initial={{ y: 20, opacity: 0 }}
+        initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        className="w-full bg-slate-900/40 backdrop-blur-3xl rounded-[2rem] md:rounded-[3rem] border border-white/10 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.5)] relative overflow-hidden"
+        style={{ willChange: 'transform, opacity' }}
+        className="w-full bg-slate-900/60 backdrop-blur-md rounded-[2rem] md:rounded-[3rem] border border-white/10 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.5)] relative overflow-hidden"
       >
         <div className="absolute top-0 left-0 w-full h-1 md:h-1.5 bg-white/5 flex z-50">
           {[1, 2, 3].map((s) => (
@@ -119,7 +120,7 @@ const InteractiveQuizForm = () => {
                 className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-400 shadow-[0_0_15px_rgba(34,211,238,0.5)]"
                 initial={{ x: '-100%' }}
                 animate={{ x: s <= step ? '0%' : '-100%' }}
-                transition={{ duration: 0.6, ease: "easeInOut" }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
               />
             </div>
           ))}
